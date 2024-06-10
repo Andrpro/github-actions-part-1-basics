@@ -1,4 +1,3 @@
-
 name: CI-CD-Pipeline-to-AWS-Beanstalk
 run-name: ${{ github.actor }} is learning GitHub Actions
 
@@ -27,12 +26,12 @@ jobs:
       - name: Configure my AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id    : ${{ secret.MY_AWS_ACCESS_KEY }}
-          aws-secret-access-key: ${{ secret.MY_SECRET_ACCESS_KEY }}
-          aws-region           : ${{ AWS_REGION_NAME }}
+          aws-access-key-id    : ${{ secrets.MY_AWS_ACCESS_KEY }}
+          aws-secret-access-key: ${{ secrets.MY_SECRET_ACCESS_KEY }}
+          aws-region           : ${{ env.AWS_REGION_NAME }}
 
       - name: Copy deployment package to s3 backet
-        run : aws s3 cp ${{ DEPLOY_PACKAGE_NAME }} s3://${{ EB_PACKAGE_S3_BACKET_NAME }}
+        run : aws s3 cp ${{ env.DEPLOY_PACKAGE_NAME }} s3://${{ env.EB_PACKAGE_S3_BACKET_NAME }}
 
       - name: Print message for CI finish
         run: echo "CI Pipeline part Finished successfully!!!"
