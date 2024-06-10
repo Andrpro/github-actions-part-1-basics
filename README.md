@@ -2,7 +2,8 @@
 
 
 Status of Last Deployment:<br>
-<img src="https://github.com/Andrpro/github-actions-part-1-basics/workflows/CI-CD-Pipeline-to-AWS-Beanstalk/badge.svg?branch=master"><br>
+![Status](https://github.com/Andrpro/github-actions-part-1-basics/workflows/CI-CD-Pipeline-to-AWS-Beanstalk/badge.svg)
+<br>
 
 
 Copyleft by Andr.
