@@ -3,8 +3,8 @@ run-name: ${{ github.actor }} is learning GitHub Actions
 
 env:
   EB_PACKAGE_S3_BACKET_NAME : "andr-flask-application-packages"
-  EB_APPLICATION_NAME       : "My Page"
-  EB_ENVIRONMENT_NAME       : "MyPage-env"
+  EB_APPLICATION_NAME       : "GIT_deploy"
+  EB_ENVIRONMENT_NAME       : "GITdeploy-env"
   DEPLOY_PACKAGE_NAME       : "flask_app_${{ github.sha }}.zip"
   AWS_REGION_NAME           : "eu-central-1"
   
