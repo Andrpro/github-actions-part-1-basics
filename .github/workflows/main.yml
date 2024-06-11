@@ -41,6 +41,7 @@ jobs:
     needs: [my-ci-parts]
 
     steps:
+    
       - name: Configure my AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
@@ -49,15 +50,10 @@ jobs:
           aws-region           : ${{ env.AWS_REGION_NAME }}
 
       - name: Create new Elastic Beanstalk Application
-        run: |
-          aws elasticbeanstalk create-application-version \
-          --application-name ${{ env.EB_APPLICATION_NAME }} \
-          --source-bundle S3Bucket="${{ env.EB_PACKAGE_S3_BACKET_NAME }}",S3Key="${{ env.DEPLOY_PACKAGE_NAME }}" \
-          --version-label "Ver-${{ github.sha }}" \
-          --description "CommitSHA-${{ github.sha }}"
-        
+        run: aws elasticbeanstalk create-application-version --application-name ${{ env.EB_APPLICATION_NAME }} --source-bundle S3Bucket="${{ env.EB_PACKAGE_S3_BACKET_NAME }}",S3Key="${{ env.DEPLOY_PACKAGE_NAME }}" --version-label "Ver-${{ github.sha }}"  --description "CommitSHA-${{ github.sha }}"
+
       - name: Deploy new Elastic Beanstalk Application version
         run:  aws elasticbeanstalk update-environment --environment-name "${{ env.EB_ENVIRONMENT_NAME }}" --version-label "Ver-${{ github.sha }}"
-      
+
       - name: Print message for CD finish
         run: echo "CD Pipeline part Finished successfully!!!"
