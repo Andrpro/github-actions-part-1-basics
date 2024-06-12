@@ -3,8 +3,8 @@ name: CI-CD-Pipeline-to-AWS-Beanstalk
 
 env:
   EB_PACKAGE_S3_BACKET_NAME : "andr-flask-application-packages"
-  EB_APPLICATION_NAME       : "Test"
-  EB_ENVIRONMENT_NAME       : "Test-env"
+  EB_APPLICATION_NAME       : "Manual"
+  EB_ENVIRONMENT_NAME       : "Manual-env"
   DEPLOY_PACKAGE_NAME       : "flask_app_${{ github.sha }}.zip"
   AWS_REGION_NAME           : "eu-central-1"
   
